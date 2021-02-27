@@ -1,38 +1,152 @@
-.App {
-  text-align: center;
-}
+@import '~antd/dist/antd.css';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+    font-family: Helvetica, Arial, san-serif;
+    padding: 2em;
+
+}
+html, body root {
+
   }
+
+body, h1, h2, h3, h4, h5, h6{
+    color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1, h2, h3, h4, h5, h6 {
+    color: black;
+    font-weight: 600;
 }
 
-.App-link {
-  color: #61dafb;
+.view {
+  padding-top: 12px;
+  display: grid;
+  grid-template: 'item-viewid item-viewid'
+                 'item-section item-section'
+                 'item-title item-title'
+                 'item-subtitle item-subtitle'
+                 'item-description item-description'
+                 'item-photo item-diagram'
+                 'item-subtitlex item-labelsx'
+                 'item-labels item-labels';
+  padding-bottom: 20px;
+  /* border-bottom: 1px solid gray; */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto auto auto auto auto 1fr;
+  grid-column-gap: 2rem;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.view .title .label, 
+.view .section .label, 
+.view .subtitle .label,
+.view .description .label {
+    display: none;
+}
+
+.view .section {
+  grid-area: item-section;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1em;
+}
+
+.view .title {
+  grid-area: item-title;
+  font-weight: bold;
+  font-size: 28px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  line-height: 1.2em;
+
+
+}
+
+
+.view .subtitle {
+  grid-area: item-subtitle;
+  font-weight: normal;
+  font-size: 20px;
+  padding-bottom: 0px;
+  line-height: 1.2em;
+}
+
+.view .description {
+  grid-area: item-description;
+  font-size: 16px;
+  padding-bottom: 12px;
+  padding-top: 20px;
+  line-height: 1.2em;
+}
+
+
+.view .diagram {
+  justify-self: center;
+  align-self: center;
+}
+
+.view .photo {
+  justify-self: center;
+  align-self: center;
+
+}
+.view .diagram img {
+  ewidth: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.view .photo img {
+  object-fit: contain;
+  max-height: 500px;
+  width: 100%;
+}
+
+.view .labels {
+  grid-area: item-labels;
+  columns: 2;
+  font-size: 14px;
+  padding-left: 0.5em;
+  padding-top: 12px;
+}
+
+.view .viewid {
+  grid-area: item-viewid;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.view .labels {
+  line-height: 1.2em;
+}
+.view .labels * div {
+  margin-bottom: 4px;
+}
+
+h1 {
+  margin-bottom: 2px;
+  line-height: 1.2em;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.license {
+  margin-bottom: 18px;
+  line-height: 1.25em;
+  font-style: oblique;
+  font-size: 12px;
+  color: gray80;
+}
+
+.total-count {
+  font-size: 20px;
+  font-style: oblique;
+}
+
+.pageControls {
+  margin-left: 4em;
+  padding-bottom: 4em;
+  font-size: 16px;
 }
