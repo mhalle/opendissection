@@ -142,9 +142,9 @@ function App() {
       <header>
         <h1>Bassett Collection of Human Anatomy</h1>
         <div className="license">
-          Images courtesy Stanford Medical History Center
+          Images courtesy Stanford Medical History Center.
           <br />
-          under a Creative Commons Attribution-Noncommercial-Share Alike 3.0
+          Creative Commons Attribution-Noncommercial-Share Alike 3.0
           United States License.
         </div>
         <Search
