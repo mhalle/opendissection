@@ -139,19 +139,21 @@ function App() {
 
   return (
     <div>
-      <h1>Bassett Collection of Human Anatomy</h1>
-      <div className="license">
-        Images courtesy Stanford Medical History Center
-        <br />
-        under a Creative Commons Attribution-Noncommercial-Share Alike 3.0
-        United States License.
-      </div>
-      <Search
-        placeholder="Search..."
-        size="large"
-        onSearch={setSearchString}
-        style={{ width: "75%", marginBottom: "12px" }}
-      />
+      <header>
+        <h1>Bassett Collection of Human Anatomy</h1>
+        <div className="license">
+          Images courtesy Stanford Medical History Center
+          <br />
+          under a Creative Commons Attribution-Noncommercial-Share Alike 3.0
+          United States License.
+        </div>
+        <Search
+          placeholder="Search..."
+          size="large"
+          onSearch={setSearchString}
+          className="search"
+        />
+      </header>
       <ViewQueryResults
         viewSearch={searchString}
         cursor={cursor}

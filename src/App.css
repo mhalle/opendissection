@@ -3,12 +3,7 @@
 
 body {
     font-family: Helvetica, Arial, san-serif;
-    padding: 2em;
-
 }
-html, body root {
-
-  }
 
 body, h1, h2, h3, h4, h5, h6{
     color: black;
@@ -19,8 +14,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+header {
+  padding: 1em;
+}
+
 .view {
-  padding-top: 12px;
+  padding-top: 0px;
   display: grid;
   grid-template: 'item-viewid item-viewid'
                  'item-section item-section'
@@ -30,11 +29,66 @@ h1, h2, h3, h4, h5, h6 {
                  'item-photo item-diagram'
                  'item-subtitlex item-labelsx'
                  'item-labels item-labels';
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   /* border-bottom: 1px solid gray; */
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto auto auto auto auto auto 1fr;
   grid-column-gap: 2rem;
+
+}
+
+@media only screen and (min-width: 600px) {
+body {
+  padding: 0.5em;
+}
+
+.view .labels {
+  columns: 2;
+}
+.view .title {  
+  font-size: 28px;
+}
+
+.view .subtitle {
+  font-size: 20px;
+}
+
+.view .description {
+  font-size: 16px;
+}
+
+}
+
+@media only screen and (max-width: 600px) {
+
+.view {
+  padding-top: 0px;
+  display: grid;
+  grid-template: 'item-viewid'
+                 'item-section'
+                 'item-title'
+                 'item-subtitle'
+                 'item-description'
+                 'item-photo'
+                 'item-diagram'
+                 'item-labels';
+  padding-bottom: 0px;
+  /* border-bottom: 1px solid gray; */
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto auto auto auto 1fr;
+}
+
+.view .title {  
+  font-size: 24px;
+}
+
+.view .subtitle {
+  font-size: 18px;
+}
+
+.view .description {
+  font-size: 14px;
+}
 
 }
 
@@ -56,26 +110,21 @@ h1, h2, h3, h4, h5, h6 {
 .view .title {
   grid-area: item-title;
   font-weight: bold;
-  font-size: 28px;
   padding-bottom: 6px;
   padding-top: 6px;
   line-height: 1.2em;
-
-
 }
 
 
 .view .subtitle {
   grid-area: item-subtitle;
   font-weight: normal;
-  font-size: 20px;
   padding-bottom: 0px;
   line-height: 1.2em;
 }
 
 .view .description {
   grid-area: item-description;
-  font-size: 16px;
   padding-bottom: 12px;
   padding-top: 20px;
   line-height: 1.2em;
@@ -106,7 +155,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .view .labels {
   grid-area: item-labels;
-  columns: 2;
   font-size: 14px;
   padding-left: 0.5em;
   padding-top: 12px;
@@ -141,8 +189,11 @@ h1 {
 }
 
 .total-count {
-  font-size: 20px;
+  font-size: 16px;
+  margin-left: 1em;
   font-style: oblique;
+  color: gray;
+  margin-bottom: 0.75em;
 }
 
 .pageControls {
