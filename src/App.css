@@ -110,8 +110,8 @@ body {
 .view .title {
   grid-area: item-title;
   font-weight: normal;
-  padding-bottom: 6px;
-  padding-top: 6px;
+  padding-bottom: 0px;
+  padding-top: 0px;
   line-height: 1.2em;
 
 }
