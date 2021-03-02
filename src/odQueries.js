@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
   
   export const ViewQuery = gql`
     
-      query View($viewSearch: String!, $cursor: String) {
+      query View($viewSearch: String, $cursor: String) {
       views(search: $viewSearch, first: 15, after: $cursor) {
         totalCount
         pageInfo {
@@ -23,7 +23,7 @@ import { gql } from '@apollo/client';
               parent_text
             }
           }
-          viewimages_320_list {
+          viewimages_160_list {
             nodes {
               l
               d

@@ -1,9 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { ViewQuery } from "./odQueries";
 import { useQuery } from "@apollo/client";
 import { useState, useEffect } from "react";
-import { Input, Image, Card } from "antd";
+import Input from 'antd/es/input';
+import Image from 'antd/es/image';
+import Card from 'antd/es/card';
 import { useList } from "react-use";
 
 const { Search } = Input;
@@ -13,12 +14,12 @@ function FiducialText({ fiducials }) {
     <div>
       {fiducials.map((fid) => {
         if (fid.symbol === fid.text) {
-          return <span key={fid.text}>{fid.text}: </span>;
+          return <span key={fid.symbol + fid.text + fid.parent_text}>{fid.text}: </span>;
         }
         return (
-          <div>
-            <span>{fid.symbol}.&nbsp;</span>
-            <span>{fid.text}</span>
+          <div key={fid.symbol + fid.text + fid.parent_text}>
+            <span key="symbol">{fid.symbol}.&nbsp;</span>
+            <span key="text">{fid.text}</span>
           </div>
         );
       })}
@@ -52,7 +53,7 @@ function ViewQueryResults({ viewSearch, cursor, cursorStack }) {
       <div>
         {data.views.nodes.map((node) => {
           return (
-            <Card style={{ marginBottom: "12px" }} className="viewcard">
+            <Card key={node.viewid} style={{ marginBottom: "12px" }} className="viewcard">
               <div className="view">
                 <div className="viewid"></div>
                 <div className="section">
@@ -76,12 +77,24 @@ function ViewQueryResults({ viewSearch, cursor, cursorStack }) {
                   <Image
                     preview={false}
                     src={node.viewimages_640_list.nodes[0].l}
+                    placeholder={
+                      <Image
+                        preview={false}
+                        src={node.viewimages_160_list.nodes[0].l}
+                      />
+                  }
                   ></Image>
                 </div>
                 <div className="diagram">
                   <Image
                     preview={false}
                     src={node.viewimages_640_list.nodes[0].d}
+                    placeholder={
+                        <Image
+                          preview={false}
+                          src={node.viewimages_160_list.nodes[0].d}
+                        />
+                    }
                   ></Image>
                 </div>
                 <div className="labels">
@@ -123,19 +136,19 @@ function ViewQueryResults({ viewSearch, cursor, cursorStack }) {
 function App() {
   const [searchString, setSearchString] = useState("");
   const [cursor, setCursor] = useState("");
-  const [hasPrevious, setHasPrevious] = useState(false);
 
-  const cursorStack = useList([]);
+  const [cursorStackList, cursorStackOps] = useList([]);
+
+
 
   useEffect(() => {
-    cursorStack[1].clear();
-    setHasPrevious(false);
+    cursorStackOps.clear();
     setCursor("");
-  }, [searchString]);
+  }, [searchString, cursorStackOps]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [cursorStack[0]]);
+  }, [cursorStackList]);
 
   return (
     <div>
@@ -157,7 +170,7 @@ function App() {
       <ViewQueryResults
         viewSearch={searchString}
         cursor={cursor}
-        cursorStack={cursorStack}
+        cursorStack={[cursorStackList, cursorStackOps]}
       />
     </div>
   );
