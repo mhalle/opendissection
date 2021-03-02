@@ -12,11 +12,18 @@ import { gql } from '@apollo/client';
         }
         nodes {
           viewid 
-          section
+          label
+          section {
+            id
+            name
+          }
+          topic {
+            id
+            name
+          }
           title
-          subtitle
           description
-          fiducials_list(first: 100) {
+          fiducials_list(first: 200) {
             nodes {
               symbol
               text
@@ -48,7 +55,7 @@ import { gql } from '@apollo/client';
 `
 
 export const FiducialsQuery = gql`
-query Fiducials($fiducialSearch: String!) {
+query Fiducials($fiducialSearch: String) {
   fiducials(search: $fiducialSearch, first: 100) {
     totalCount
     pageInfo {

@@ -21,18 +21,16 @@ header {
 .view {
   padding-top: 0px;
   display: grid;
-  grid-template: 'item-viewid item-viewid'
+  grid-template: 
                  'item-section item-section'
                  'item-title item-title'
-                 'item-subtitle item-subtitle'
                  'item-description item-description'
                  'item-photo item-diagram'
-                 'item-subtitlex item-labelsx'
                  'item-labels item-labels';
   padding-bottom: 0px;
   /* border-bottom: 1px solid gray; */
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto auto auto auto auto auto 1fr;
+  grid-template-rows:  auto auto auto auto 1fr;
   grid-column-gap: 2rem;
 
 }
@@ -49,8 +47,9 @@ body {
   font-size: 28px;
 }
 
-.view .subtitle {
-  font-size: 20px;
+.view .topic {
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .view .description {
@@ -64,10 +63,9 @@ body {
 .view {
   padding-top: 0px;
   display: grid;
-  grid-template: 'item-viewid'
+  grid-template: 
                  'item-section'
                  'item-title'
-                 'item-subtitle'
                  'item-description'
                  'item-photo'
                  'item-diagram'
@@ -75,15 +73,16 @@ body {
   padding-bottom: 0px;
   /* border-bottom: 1px solid gray; */
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto auto 1fr;
 }
 
 .view .title {  
-  font-size: 24px;
+  font-size: 22px;
 }
 
-.view .subtitle {
+.view .topic {
   font-size: 18px;
+  font-weight: bold;
 }
 
 .view .description {
@@ -94,7 +93,7 @@ body {
 
 .view .title .label, 
 .view .section .label, 
-.view .subtitle .label,
+.view .topic .label,
 .view .description .label {
     display: none;
 }
@@ -102,24 +101,25 @@ body {
 .view .section {
   grid-area: item-section;
   font-weight: normal;
-  font-style: italic;
-  font-size: 16px;
-  line-height: 1em;
+  font-size: 18px;
+  font-weight: 700;
+
+  padding-bottom: 6px;
 }
 
 .view .title {
   grid-area: item-title;
-  font-weight: bold;
+  font-weight: normal;
   padding-bottom: 6px;
   padding-top: 6px;
   line-height: 1.2em;
+
 }
 
 
-.view .subtitle {
-  grid-area: item-subtitle;
-  font-weight: normal;
-  padding-bottom: 0px;
+.view .topic {
+  grid-area: item-topic;
+  padding-bottom: 2px;
   line-height: 1.2em;
 }
 
@@ -132,11 +132,15 @@ body {
 
 
 .view .diagram {
+  grid-area: item-diagram;
+
   justify-self: center;
   align-self: center;
 }
 
 .view .photo {
+  grid-area: item-photo;
+
   justify-self: center;
   align-self: center;
 

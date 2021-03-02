@@ -55,19 +55,13 @@ function ViewQueryResults({ viewSearch, cursor, cursorStack }) {
           return (
             <Card key={node.viewid} style={{ marginBottom: "12px" }} className="viewcard">
               <div className="view">
-                <div className="viewid"></div>
                 <div className="section">
-                  <span className="label">Section</span>
-                  <span className="content">{node.section}</span>
+                  <span className="content">{node.section.name}</span> / <span className="content">{node.topic.name}</span>
                 </div>
                 <div className="title">
+                  <span className="content">{node.label}&nbsp;</span>
                   <span className="label">Title</span>
                   <span className="content">{node.title}</span>
-                </div>
-                <div className="subtitle">
-                  <span className="content">{node.viewid}&nbsp;</span>
-                  <span className="label">Subtitle</span>
-                  <span className="content">{node.subtitle}</span>
                 </div>
                 <div className="description">
                   <span className="label">Description</span>
