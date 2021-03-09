@@ -2,16 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
   // uri: 'http://localhost:8001/graphql/bassett',
+  connectToDevtools: true,
   uri: 'https://bassett-anatomy.vercel.app/graphql/bassett',
 
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+  })
 });
-
+window.apolloClient = client;
+window.gql = gql;
 
 ReactDOM.render(
   <React.StrictMode>
