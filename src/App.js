@@ -241,6 +241,10 @@ function Searcher({ setViewIds, sortByViewId, setLoading }) {
     }
   }, [setLoading, loading]);
 
+  if(error) {
+    console.log('error', error);
+  }
+
   useEffect(() => {
     if (data) {
       const viewIds = reducer(data);
@@ -249,7 +253,7 @@ function Searcher({ setViewIds, sortByViewId, setLoading }) {
       }
       setViewIds(viewIds);
     }
-  }, [data, sortByViewId, setViewIds]);
+  }, [data, sortByViewId, setViewIds, reducer]);
   return null;
 }
 
