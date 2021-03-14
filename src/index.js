@@ -7,7 +7,7 @@ import { ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
   // uri: 'http://localhost:8001/graphql/bassett',
-  connectToDevtools: true,
+  // connectToDevtools: true,
   uri: 'https://bassett-anatomy.vercel.app/graphql/bassett',
 
   cache: new InMemoryCache({

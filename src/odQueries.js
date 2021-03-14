@@ -96,15 +96,15 @@ export const ViewFragment = gql`
 `;
 
 export const ViewRecordsQuery = gql`
-  query ViewRecords($ids: [String]) {
-    views(sort: $sort, first: 15, filter: { viewid: { in: $ids } }) {
+  query ViewRecords($ids: [String], $cursor: String, $pageSize: Int = 10) {
+    views(first: $pageSize, after: $cursor, filter: { viewid: { in: $ids } }) {
       totalCount
       pageInfo {
         hasNextPage
         endCursor
       }
       nodes {
-        viewid
+        id: viewid
         label
         section {
           id
@@ -123,20 +123,32 @@ export const ViewRecordsQuery = gql`
             parent_text
           }
         }
-        viewimages_160_list {
+        viewimages_h_128_list {
           nodes {
             l
             d
           }
         }
-        viewimages_640_list {
+        viewimages_h_256_list {
+          nodes {
+            l
+            d
+          }
+        }
+        viewimages_h_512_list {
           nodes {
             l
             d
             t
           }
         }
-        viewimages_1280_list {
+        viewimages_h_1024_list {
+          nodes {
+            l
+            d
+          }
+        }
+        viewimages_h_1536_list {
           nodes {
             l
             d
@@ -168,13 +180,43 @@ export const FiducialsQuery = gql`
 `;
 export const ViewSearchQuery = gql`
   query ViewSearch($search: String) {
-    views_search(first: 500, sort: rank, filter: { fts: { eq: $search } }) {
+    views_search(first: 1650, sort: rank, filter: { fts: { eq: $search } }) {
       totalCount
       nodes {
-        viewid
+        id: viewid
       }
     }
   }
 `;
+
+export const ViewIdsInSection = gql`
+query ViewIdsInSection($section_id: Int, $count: Int=1650) {
+  views(first: $count, filter: {section: {eq: $section_id}}) {
+    totalCount
+    nodes {
+      id: viewid
+    }
+  }
+}`
+
+export const ViewIdsInTopic = gql`
+query ViewIdsInTopic($topic_id: Int, $count: Int=1650) {
+  views(first:$count, filter: {topic: {eq: $topic_id}}) {
+    totalCount
+    nodes {
+      id: viewid
+    }
+  }
+}`;
+
+export const AllViewIds = gql`
+query AllViewIds($count: Int = 1650) {
+  views(first:$count) {
+    totalCount
+    nodes {
+      id: viewid
+    }
+  }
+}`;
 
 window.ViewFragment = ViewFragment;
