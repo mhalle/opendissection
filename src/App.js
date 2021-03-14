@@ -13,12 +13,10 @@ import Input from "antd/es/input";
 import Card from "antd/es/card";
 import Button from "antd/es/button";
 import Pagination from "antd/es/pagination";
-import InnerImageZoom from 'react-inner-image-zoom';
-
-
 import Spin from "antd/es/spin";
 import Space from "antd/es/space";
-import { useList } from "react-use";
+import InnerImageZoom from 'react-inner-image-zoom';
+
 import {
   BrowserRouter as Router,
   useLocation,
@@ -133,10 +131,18 @@ function ViewQueryResults({
                 <span className="content">{node.description}</span>
               </div>
               <div className="photo">
-                <InnerImageZoom src={node.viewimages_h_512_list.nodes[0].l} zoomSrc={node.viewimages_h_1024_list.nodes[0].l} />
+                <InnerImageZoom 
+                  src={node.viewimages_h_512_list.nodes[0].l} 
+                  zoomSrc={node.viewimages_h_1024_list.nodes[0].l} 
+                  fullscreenOnMobile={true}
+                  />
               </div>
               <div className="diagram">
-                <InnerImageZoom src={node.viewimages_h_512_list.nodes[0].d} zoomSrc={node.viewimages_h_1024_list.nodes[0].d}/>
+                <InnerImageZoom 
+                  src={node.viewimages_h_512_list.nodes[0].d} 
+                  zoomSrc={node.viewimages_h_1024_list.nodes[0].d}
+                  fullscreenOnMobile={true}
+                  />
               </div>
               <div className="labels">
                 <FiducialText fiducials={node.fiducials_list.nodes} />
@@ -149,21 +155,6 @@ function ViewQueryResults({
   );
 }
 
-function useStack(v) {
-  const [list, listOps] = useList(v);
-
-  const push = listOps.push;
-  const peek = () => {
-    return list[list.length - 1];
-  };
-  const pop = () => {
-    const val = list[list.length - 1];
-    listOps.removeAt(list.length - 1);
-    return val;
-  };
-  const clear = listOps.clear;
-  return [list, { push, peek, pop, clear }];
-}
 
 function buildQueryString({ q, s, t, pg }) {
   const params = new URLSearchParams();
@@ -306,7 +297,6 @@ function App() {
   const [pageSize, setPageSize] = useState(10);
   // const [currentPage, setCurrentPage] = useState(0);
   const [skip, setSkip] = useState(true);
-  const [opId, setOpId] = useState(null);
   const currentPage = useCurrentPage();
 
   const doSearch = (s) => {
