@@ -1,4 +1,5 @@
 dependencies:
+  '@ant-design/icons': 4.5.0_react-dom@17.0.1+react@17.0.1
   '@apollo/client': 3.3.11_graphql@15.5.0+react@17.0.1
   '@testing-library/jest-dom': 5.11.9
   '@testing-library/react': 11.2.5_react-dom@17.0.1+react@17.0.1
@@ -8,8 +9,13 @@ dependencies:
   primeicons: 4.1.0
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
+  react-ga-donottrack: 1.0.1_react@17.0.1
+  react-image-magnifiers: 1.4.0_react-dom@17.0.1+react@17.0.1
+  react-inner-image-zoom: 2.0.1_react@17.0.1
+  react-lazy-load: 3.1.13_react-dom@17.0.1+react@17.0.1
   react-router-dom: 5.2.0_react@17.0.1
   react-scripts: 4.0.3_react@17.0.1
+  react-simple-img: 2.3.9_react-dom@17.0.1+react@17.0.1
   react-transition-group: 4.4.1_react-dom@17.0.1+react@17.0.1
   react-use: 17.1.1_react-dom@17.0.1+react@17.0.1
   web-vitals: 1.1.0
@@ -29,7 +35,7 @@ packages:
     dependencies:
       '@ant-design/colors': 6.0.0
       '@ant-design/icons-svg': 4.1.0
-      '@babel/runtime': 7.13.7
+      '@babel/runtime': 7.13.10
       classnames: 2.2.6
       insert-css: 2.0.0
       rc-util: 5.8.1_react-dom@17.0.1+react@17.0.1
@@ -1321,6 +1327,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-J5AIf3vPj3UwXaAzb5j1xM4WAQDX3EMgemF8rjCP3SoW09LfRKAXQKt6CoVYl230P6iWdRcBbnLDDdnqWxZSCA==
+  /@babel/runtime/7.13.10:
+    dependencies:
+      regenerator-runtime: 0.13.7
+    dev: false
+    resolution:
+      integrity: sha512-4QPkjJq6Ns3V/RgpEahRk+AGfL0eO6RHHtTWoNNr5mO49G6B5+X6d6THgWEAvTrznU5xYpbAlVKRYcsCgh/Akw==
   /@babel/runtime/7.13.7:
     dependencies:
       regenerator-runtime: 0.13.7
@@ -1333,6 +1345,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-CwQljpw6qSayc0fRG1soxHAKs1CnQMOChm4mlQP6My0kf9upVGizj/KhlTTgyUnETmHpcUXjaluNAkteRFuafg==
+  /@babel/runtime/7.13.9:
+    dependencies:
+      regenerator-runtime: 0.13.7
+    dev: false
+    resolution:
+      integrity: sha512-aY2kU+xgJ3dJ1eU6FMB9EH8dIe8dmusF1xEku52joLvw6eAFN0AI+WxCLDnpev2LEejWBAy2sBvBOBAjI3zmvA==
   /@babel/template/7.12.13:
     dependencies:
       '@babel/code-frame': 7.12.13
@@ -5277,6 +5295,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
+  /eventlistener/0.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-7Suqu4UiJ68rz4iRUscsY8pTLrg=
   /events/3.2.0:
     dev: false
     engines:
@@ -6100,7 +6122,7 @@ packages:
       integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
   /history/4.10.1:
     dependencies:
-      '@babel/runtime': 7.13.8
+      '@babel/runtime': 7.13.9
       loose-envify: 1.4.0
       resolve-pathname: 3.0.0
       tiny-invariant: 1.1.0
@@ -6482,6 +6504,10 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-O0DB1JC/sPyZl7cIo78n5dR7eUSwwpYPiXRhTzNxZVAMUuB8vlnRFyLxdrVToks6XPLVnFfbzaVd5WLjhgg+vA==
+  /intersection-observer/0.5.1:
+    dev: false
+    resolution:
+      integrity: sha512-Zd7Plneq82kiXFixs7bX62YnuZ0BMRci9br7io88LwDyF3V43cQMI+G5IiTlTNTt+LsDUppl19J/M2Fp9UkH6g==
   /ip-regex/2.1.0:
     dev: false
     engines:
@@ -7784,6 +7810,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
+  /lodash.throttle/4.1.1:
+    dev: false
+    resolution:
+      integrity: sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
   /lodash.uniq/4.5.0:
     dev: false
     resolution:
@@ -8014,7 +8044,7 @@ packages:
       integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==
   /mini-create-react-context/0.4.1_prop-types@15.7.2+react@17.0.1:
     dependencies:
-      '@babel/runtime': 7.13.8
+      '@babel/runtime': 7.13.9
       prop-types: 15.7.2
       react: 17.0.1
       tiny-warning: 1.0.3
@@ -10433,7 +10463,7 @@ packages:
       integrity: sha512-v2sirR4JL31UTHD/f0LGUdd+tpFaOVUTPeIEjAXRP9kRN8TFhqOgcXl5ixtyqj90FmtRUmKmafCv0EmhBQUHqQ==
   /rc-util/5.8.1_react-dom@17.0.1+react@17.0.1:
     dependencies:
-      '@babel/runtime': 7.13.7
+      '@babel/runtime': 7.13.10
       react: 17.0.1
       react-dom: 17.0.1_react@17.0.1
       react-is: 16.13.1
@@ -10518,6 +10548,55 @@ packages:
     dev: false
     resolution:
       integrity: sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==
+  /react-ga-donottrack/1.0.1_react@17.0.1:
+    dependencies:
+      react: 17.0.1
+      react-ga: 2.7.0_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.6.3
+    resolution:
+      integrity: sha512-jmZ9czwqp8s9TmtvxpHgzrhudSviIIseAkARbQSwiQcWYwpqo34WiUK0i2s4JmqEZjJpzSc84wb3AAQYOkCdAA==
+  /react-ga/2.7.0_react@17.0.1:
+    dependencies:
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      prop-types: ^15.6.0
+      react: ^15.6.2 || ^16.0
+    resolution:
+      integrity: sha512-AjC7UOZMvygrWTc2hKxTDvlMXEtbmA0IgJjmkhgmQQ3RkXrWR11xEagLGFGaNyaPnmg24oaIiaNPnEoftUhfXA==
+  /react-image-magnifiers/1.4.0_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      prop-types: 15.7.2
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+      react-input-position: 1.3.2_react-dom@17.0.1+react@17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    resolution:
+      integrity: sha512-ZszHusdsYteccKGysHXUOgLRGtHqfRYuG1koHh3VAvuhrzF4BEs1Ot5tSe1WA2v+EsjAEfYcrRyi/Is4QDD61A==
+  /react-inner-image-zoom/2.0.1_react@17.0.1:
+    dependencies:
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: '>=16.8.0'
+    resolution:
+      integrity: sha512-nqNqs6LiXi9itZ1Qg1Xb+JAnbq5W4QnfpqZH1U5QaXuFLxwCxpXl1N6IrOX8vzvgj7+SGSJ8mMG1nP7/78HHMw==
+  /react-input-position/1.3.2_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      prop-types: 15.7.2
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.3.0
+      react-dom: ^16.3.0
+    resolution:
+      integrity: sha512-0RsvWZ+pBpFki1N4CF7dWWKgQpejQuf9qjrBVdXRE315kk6HBEVk1f8rsod6Rpo88vxPwj5FcBnn7ZlTNq+JRA==
   /react-is/16.13.1:
     dev: false
     resolution:
@@ -10526,6 +10605,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+  /react-lazy-load/3.1.13_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      eventlistener: 0.0.1
+      lodash.debounce: 4.0.8
+      lodash.throttle: 4.1.1
+      prop-types: 15.7.2
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0-0 || ^16.0.0
+      react-dom: ^0.14.0 || ^15.0.0-0 || ^16.0.0
+    resolution:
+      integrity: sha512-eAVNUn3vhNj79Iv04NOCwy/sCLyqDEhL3j9aJKV7VJuRBDg6rCiB+BIWHuG7VXJGCgb//6nX/soR8PTyWRhFvQ==
   /react-refresh/0.8.3:
     dev: false
     engines:
@@ -10534,7 +10627,7 @@ packages:
       integrity: sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
   /react-router-dom/5.2.0_react@17.0.1:
     dependencies:
-      '@babel/runtime': 7.13.8
+      '@babel/runtime': 7.13.9
       history: 4.10.1
       loose-envify: 1.4.0
       prop-types: 15.7.2
@@ -10549,7 +10642,7 @@ packages:
       integrity: sha512-gxAmfylo2QUjcwxI63RhQ5G85Qqt4voZpUXSEqCwykV0baaOTQDR1f0PmY8AELqIyVc0NEZUj0Gov5lNGcXgsA==
   /react-router/5.2.0_react@17.0.1:
     dependencies:
-      '@babel/runtime': 7.13.8
+      '@babel/runtime': 7.13.9
       history: 4.10.1
       hoist-non-react-statics: 3.3.2
       loose-envify: 1.4.0
@@ -10640,6 +10733,17 @@ packages:
         optional: true
     resolution:
       integrity: sha512-S5eO4vjUzUisvkIPB7jVsKtuH2HhWcASREYWHAQ1FP5HyCv3xgn+wpILAEWkmy+A+tTNbSZClhxjT3qz6g4L1A==
+  /react-simple-img/2.3.9_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      intersection-observer: 0.5.1
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: '>= 16.3.0'
+      react-dom: '>= 16.3.0'
+    resolution:
+      integrity: sha512-h+WLq8+qwN7KxvzXDwIG22dB+WLrb4gIGtux5o4v9j8Be4G0NqcsJbgKwoHblC0qlPGUpFfeUhkEQN6zSX39jg==
   /react-transition-group/4.4.1_react-dom@17.0.1+react@17.0.1:
     dependencies:
       '@babel/runtime': 7.13.7
@@ -13278,6 +13382,7 @@ packages:
     resolution:
       integrity: sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==
 specifiers:
+  '@ant-design/icons': ^4.5.0
   '@apollo/client': ^3.3.11
   '@testing-library/jest-dom': ^5.11.4
   '@testing-library/react': ^11.1.0
@@ -13287,8 +13392,13 @@ specifiers:
   primeicons: ^4.1.0
   react: ^17.0.1
   react-dom: ^17.0.1
+  react-ga-donottrack: ^1.0.1
+  react-image-magnifiers: ^1.4.0
+  react-inner-image-zoom: ^2.0.1
+  react-lazy-load: ^3.1.13
   react-router-dom: ^5.2.0
   react-scripts: 4.0.3
+  react-simple-img: ^2.3.9
   react-transition-group: ^4.4.1
   react-use: ^17.1.1
   web-vitals: ^1.0.1
