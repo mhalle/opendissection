@@ -74,9 +74,13 @@ function ViewQueryResults({
 
   useEffect(() => {
     if (data && data.views && data.views.nodes) {
-      setViews(data.views.nodes);
+      const d = {};
+      for(let n of data.views.nodes) {
+        d[n.id] = n;
+      }
+      setViews(viewIds.map(x => d[x]));
     }
-  }, [data]);
+  }, [data, viewIds]);
 
   if (loading) {
     return (
