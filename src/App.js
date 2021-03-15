@@ -133,9 +133,9 @@ function ViewQueryResults({
               <div className="description">
                 <span className="content">{node.description}</span>
               </div>
-              <div className="larger-photo"><a href={node.viewimages_h_1024_list.nodes[0].l} 
+              <div className="larger-photo"><a href={node.viewimages_h_1536_list.nodes[0].l} 
                   rel="noreferrer" target="_blank">larger</a></div>
-              <div className="larger-diagram"><a href={node.viewimages_h_1024_list.nodes[0].d}  
+              <div className="larger-diagram"><a href={node.viewimages_h_1536_list.nodes[0].d}  
                   rel="noreferrer" target="_blank">larger</a></div>
 
               <div className="photo">

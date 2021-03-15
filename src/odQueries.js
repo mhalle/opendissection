@@ -123,12 +123,6 @@ export const ViewRecordsQuery = gql`
             parent_text
           }
         }
-        viewimages_h_128_list {
-          nodes {
-            l
-            d
-          }
-        }
         viewimages_h_256_list {
           nodes {
             l
