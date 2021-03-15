@@ -12,6 +12,7 @@
     "primeicons": "^4.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-ga-donottrack": "^1.0.1",
     "react-image-magnifiers": "^1.4.0",
     "react-inner-image-zoom": "^2.0.1",
     "react-lazy-load": "^3.1.13",

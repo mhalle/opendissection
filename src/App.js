@@ -16,6 +16,7 @@ import Pagination from "antd/es/pagination";
 import Spin from "antd/es/spin";
 import Space from "antd/es/space";
 import InnerImageZoom from 'react-inner-image-zoom';
+import * as ReactGA from 'react-ga-donottrack';
 
 import {
   BrowserRouter as Router,
@@ -198,7 +199,7 @@ function SearcherId({ setViewIds, setLoading,  }) {
   return null;
 }
 
-function Searcher({ setViewIds, sortByViewId, setLoading }) {
+function Searcher({ setViewIds, sortByViewId, setLoading, setError }) {
   const pathParams = useParams();
   const queryParams = useQueryParams();
 
@@ -231,6 +232,13 @@ function Searcher({ setViewIds, sortByViewId, setLoading }) {
       setLoading(loading);
     }
   }, [setLoading, loading]);
+
+  useEffect(() => {
+    if (setError) {
+      setError(error);
+    }
+  }, [setError, error]);
+
 
   if(error) {
     console.log('error', error);
@@ -272,9 +280,30 @@ function useQueryParams() {
 
 function useCurrentPage() {
   const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const currentPage = params.has('pg') ? parseInt(params.get('pg')) : 1;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() =>  {
+    if(location){
+      const params = new URLSearchParams(location.search);
+      setCurrentPage(params.has('pg') ? parseInt(params.get('pg')) : 1);
+    }
+  }, [location, setCurrentPage]);
+
   return currentPage;
+}
+
+function useCurrentSearchText() {
+  const location = useLocation();
+  const [searchText, setSearchText] = useState(1);
+
+  useEffect(() =>  {
+    if(location){
+      const params = new URLSearchParams(location.search);
+      setSearchText(params.has('q') ? parseInt(params.get('q')) : '');
+    }
+  }, [location, setSearchText]);
+  
+  return searchText;
 }
 
 function setPage(history, n) {
@@ -290,14 +319,30 @@ function setPage(history, n) {
 
 function App() {
   const history = useHistory();
-
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const [viewIds, setViewIds] = useState([]);
   const [sortByViewId, setSortByViewId] = useState(false);
   const [pageSize, setPageSize] = useState(10);
+  const [error, setError] = useState(null);
   // const [currentPage, setCurrentPage] = useState(0);
   const [skip, setSkip] = useState(true);
   const currentPage = useCurrentPage();
+  const location = useLocation();
+  const queryParams = useQueryParams();
+
+  useEffect(() => {
+    console.log('error here', error);
+  }, [error]);
+
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]);
+
+  useEffect(() => {
+    if(queryParams && queryParams.has('q')){
+      setSearchText(queryParams.get('q'));
+    }
+  }, [queryParams]);
 
   const doSearch = (s) => {
     navigate({ q: s });
@@ -341,6 +386,7 @@ function App() {
             setViewIds={setViewIds}
             sortByViewId={sortByViewId}
             setLoading={setSkip}
+            setError={setError}
           />
         </Route>
         <Route path="/">
@@ -348,6 +394,7 @@ function App() {
             setViewIds={setViewIds}
             sortByViewId={sortByViewId}
             setLoading={setSkip}
+            setError={setError}
           />
         </Route>
       </Switch>
@@ -379,6 +426,7 @@ function App() {
           </div>
         </div>
       </header>
+      <div>{error}</div>
       <ViewQueryResults
         viewIds={currentPageViewIds}
         changeSection={changeSection}
@@ -400,9 +448,8 @@ function App() {
       <footer>
         <hr />
         <div className="license">
-          Images courtesy Stanford Medical History Center, under a Creative
-          Commons Attribution-Noncommercial-Share Alike 3.0 United States
-          License.
+          Images courtesy <a href="https://lane.stanford.edu/med-history/">Stanford Medical History Center</a>, 
+          under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License.
         </div>
       </footer>
     </>
