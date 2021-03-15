@@ -62,7 +62,7 @@ header {
 
   .view .section,
   .view .section Button {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
     margin-top: 0px;
     padding: 0px;
@@ -101,7 +101,7 @@ header {
 
   .view .section,
   .view .section Button {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
     padding: 0px;
   }
