@@ -82,7 +82,7 @@ function ViewQueryResults({
     }
   }, [data, viewIds]);
 
-  if (loading) {
+  if (skip || loading) {
     return (
       <Space className="spinnerdiv">
         <Spin size="large" />
@@ -411,9 +411,9 @@ function App() {
             className="search"
             value={searchText}
           />
-          <div className="search-count">
+          {!skip ? <div className="search-count">
             {viewIds.length} Match{viewIds.length === 1 ? "" : "es"}
-          </div>
+          </div> : ''}
         </div>
       </header>
       <div>{error}</div>
