@@ -146,24 +146,16 @@ header {
 
 .view .diagram {
   grid-area: item-diagram;
-
   justify-self: center;
   align-self: center;
 }
 
 .view .photo {
   grid-area: item-photo;
-
   justify-self: center;
   align-self: center;
 }
 
-.view .images {
-  grid-area: item-images;
-  display: flex;
-  width: 100%;
-}
-
 .view .diagram .iiz__img {
   object-fit: scale-down;
   max-height: 512px;
@@ -174,18 +166,6 @@ header {
   max-height: 512px;
   object-fit: scale-down;
   width: 100%;
-}
-
-.Xview .diagram img {
-  width: 100%;
-  max-height: 512px;
-  object-fit: scale-down;
-}
-
-.Xview .photo img {
-  width: 100%;
-  object-fit: scale-down;
-  max-height: 512px;
 }
 
 .view .labels {
