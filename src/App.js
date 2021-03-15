@@ -1,5 +1,5 @@
 import "./App.css";
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import {
   ViewSearchQuery,
   AllViewIds,
@@ -15,8 +15,8 @@ import Button from "antd/es/button";
 import Pagination from "antd/es/pagination";
 import Spin from "antd/es/spin";
 import Space from "antd/es/space";
-import InnerImageZoom from 'react-inner-image-zoom';
-import * as ReactGA from 'react-ga-donottrack';
+import InnerImageZoom from "react-inner-image-zoom";
+import * as ReactGA from "react-ga-donottrack";
 
 import {
   BrowserRouter as Router,
@@ -32,7 +32,6 @@ const { Search } = Input;
 function quoteIfViewId(v) {
   return v.match(/^\d?\d?[\dA]-\d/) ? `"${v}"` : v;
 }
-
 
 function FiducialText({ fiducials }) {
   return (
@@ -93,7 +92,6 @@ function ViewQueryResults({
   if (!views || views.length === 0) {
     return <div>No results</div>;
   }
-  
 
   return (
     <div>
@@ -131,19 +129,24 @@ function ViewQueryResults({
               <div className="description">
                 <span className="content">{node.description}</span>
               </div>
+              <div className="larger-photo"><a href={node.viewimages_h_1024_list.nodes[0].l} 
+                  rel="noreferrer" target="_blank">larger</a></div>
+              <div className="larger-diagram"><a href={node.viewimages_h_1024_list.nodes[0].d}  
+                  rel="noreferrer" target="_blank">larger</a></div>
+
               <div className="photo">
-                <InnerImageZoom 
-                  src={node.viewimages_h_512_list.nodes[0].l} 
-                  zoomSrc={node.viewimages_h_1024_list.nodes[0].l} 
+                <InnerImageZoom
+                  src={node.viewimages_h_512_list.nodes[0].l}
+                  zoomSrc={node.viewimages_h_1024_list.nodes[0].l}
                   fullscreenOnMobile={true}
-                  />
+                />
               </div>
               <div className="diagram">
-                <InnerImageZoom 
-                  src={node.viewimages_h_512_list.nodes[0].d} 
+                <InnerImageZoom
+                  src={node.viewimages_h_512_list.nodes[0].d}
                   zoomSrc={node.viewimages_h_1024_list.nodes[0].d}
                   fullscreenOnMobile={true}
-                  />
+                />
               </div>
               <div className="labels">
                 <FiducialText fiducials={node.fiducials_list.nodes} />
@@ -155,7 +158,6 @@ function ViewQueryResults({
     </div>
   );
 }
-
 
 function buildQueryString({ q, s, t, pg }) {
   const params = new URLSearchParams();
@@ -187,12 +189,11 @@ function viewsSearchReducer(data) {
   return [];
 }
 
-
-function SearcherId({ setViewIds, setLoading,  }) {
+function SearcherId({ setViewIds, setLoading }) {
   const pathParams = useParams();
 
   useEffect(() => {
-    setViewIds(pathParams.idList.split(','));
+    setViewIds(pathParams.idList.split(","));
     setLoading(false);
   }, [pathParams.idList, setViewIds, setLoading]);
 
@@ -239,9 +240,8 @@ function Searcher({ setViewIds, sortByViewId, setLoading, setError }) {
     }
   }, [setError, error]);
 
-
-  if(error) {
-    console.log('error', error);
+  if (error) {
+    console.log("error", error);
   }
 
   useEffect(() => {
@@ -269,7 +269,7 @@ function useQueryParams() {
   const location = useLocation();
 
   useEffect(() => {
-    if(location) {
+    if (location) {
       setQp(new URLSearchParams(location.search));
     }
   }, [location]);
@@ -277,49 +277,34 @@ function useQueryParams() {
   return qp;
 }
 
-
 function useCurrentPage() {
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() =>  {
-    if(location){
+  useEffect(() => {
+    if (location) {
       const params = new URLSearchParams(location.search);
-      setCurrentPage(params.has('pg') ? parseInt(params.get('pg')) : 1);
+      setCurrentPage(params.has("pg") ? parseInt(params.get("pg")) : 1);
     }
   }, [location, setCurrentPage]);
 
   return currentPage;
 }
 
-function useCurrentSearchText() {
-  const location = useLocation();
-  const [searchText, setSearchText] = useState(1);
-
-  useEffect(() =>  {
-    if(location){
-      const params = new URLSearchParams(location.search);
-      setSearchText(params.has('q') ? parseInt(params.get('q')) : '');
-    }
-  }, [location, setSearchText]);
-  
-  return searchText;
-}
-
 function setPage(history, n) {
   const location = history.location;
   const params = new URLSearchParams(location.search);
-  if(n === 1){
-    params.delete('pg');
+  if (n === 1) {
+    params.delete("pg");
   } else {
-    params.set('pg', n);
+    params.set("pg", n);
   }
-  history.push({...location, search: params.toString()});
+  history.push({ ...location, search: params.toString() });
 }
 
 function App() {
   const history = useHistory();
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
   const [viewIds, setViewIds] = useState([]);
   const [sortByViewId, setSortByViewId] = useState(false);
   const [pageSize, setPageSize] = useState(10);
@@ -331,7 +316,7 @@ function App() {
   const queryParams = useQueryParams();
 
   useEffect(() => {
-    console.log('error here', error);
+    // console.log("error here", error);
   }, [error]);
 
   useEffect(() => {
@@ -339,8 +324,8 @@ function App() {
   }, [location]);
 
   useEffect(() => {
-    if(queryParams && queryParams.has('q')){
-      setSearchText(queryParams.get('q'));
+    if (queryParams && queryParams.has("q")) {
+      setSearchText(queryParams.get("q"));
     }
   }, [queryParams]);
 
@@ -368,13 +353,14 @@ function App() {
   };
 
   const paginatedViewIds = breakIntoPages(viewIds, pageSize);
-  const currentPageViewIds = paginatedViewIds.length ? paginatedViewIds[currentPage-1]
+  const currentPageViewIds = paginatedViewIds.length
+    ? paginatedViewIds[currentPage - 1]
     : [];
 
   return (
     <>
       <Switch>
-      <Route path="/ids/:idList">
+        <Route path="/ids/:idList">
           <SearcherId
             setViewIds={setViewIds}
             setLoading={setSkip}
@@ -439,7 +425,7 @@ function App() {
           showLessItems={false}
           current={currentPage}
           pageSize={pageSize}
-          onChange={x => setPage(history, x)}
+          onChange={(x) => setPage(history, x)}
           total={viewIds.length}
           showSizeChanger={false}
           hideOnSinglePage={true}
@@ -448,8 +434,20 @@ function App() {
       <footer>
         <hr />
         <div className="license">
-          Images courtesy <a href="https://lane.stanford.edu/med-history/">Stanford Medical History Center</a>, 
-          under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License.
+          <div>
+            This viewer developed by the{" "}
+            <a href="https://www.openanatomy.org">Open Anatomy Project</a>. For
+            more information, please contact{" "}
+            <a href="mailto:info@openanatomy.org">info@openanatomy.org</a>.
+          </div>
+          <div>
+            Images courtesy{" "}
+            <a href="https://lane.stanford.edu/med-history/">
+              Stanford Medical History Center
+            </a>
+            , under a Creative Commons Attribution-Noncommercial-Share Alike 3.0
+            United States License.
+          </div>
         </div>
       </footer>
     </>

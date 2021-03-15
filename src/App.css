@@ -1,17 +1,27 @@
-@import '~antd/dist/antd.css';
-
+@import "~antd/dist/antd.css";
 
 body {
-    font-family: Helvetica, Arial, san-serif;
+  font-family: Helvetica, Arial, san-serif;
 }
 
-body, h1, h2, h3, h4, h5, h6{
-    color: black;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: black;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: black;
-    font-weight: 600;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: black;
+  font-weight: 600;
 }
 
 header {
@@ -21,91 +31,91 @@ header {
 .view {
   padding-top: 0px;
   display: grid;
-  grid-template: 
-                 'item-section item-section'
-                 'item-title item-title'
-                 'item-description item-description'
-                 'item-photo item-diagram'
-                 'item-labels item-labels';
+  grid-template:
+    "item-section item-section"
+    "item-title item-title"
+    "item-description item-description"
+    "larger-photo larger-diagram"
+    "item-photo item-diagram"
+    "item-labels item-labels";
   padding-bottom: 0px;
   /* border-bottom: 1px solid gray; */
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows:  auto auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto auto 1fr;
   grid-column-gap: 2rem;
-
 }
 
 @media only screen and (min-width: 600px) {
-body {
-  padding: 0.5em;
-}
+  body {
+    padding: 0.5em;
+  }
 
-h1 {
-  font-size: 32px;
-}
-.view .labels {
-  columns: 2;
-}
-.view .title {  
-  font-size: 28px;
-}
+  h1 {
+    font-size: 32px;
+  }
+  .view .labels {
+    columns: 2;
+  }
+  .view .title {
+    font-size: 28px;
+  }
 
-.view .section, .view .section Button {
-  font-size: 18px;
-  font-weight: normal;
-  margin-top: 0px;
-  padding: 0px;
-}
+  .view .section,
+  .view .section Button {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 0px;
+    padding: 0px;
+  }
 
-.view .description {
-  font-size: 16px;
-}
-
+  .view .description {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
+  .view {
+    padding-top: 0px;
+    display: grid;
+    grid-template:
+      "item-section"
+      "item-title"
+      "item-description"
+      "larger-photo"
+      "item-photo"
+      "larger-diagram"
+      "item-diagram"
+      "item-labels";
+    padding-bottom: 0px;
+    /* border-bottom: 1px solid gray; */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto 1fr;
+  }
 
-.view {
-  padding-top: 0px;
-  display: grid;
-  grid-template: 
-                 'item-section'
-                 'item-title'
-                 'item-description'
-                 'item-photo'
-                 'item-diagram'
-                 'item-labels';
-  padding-bottom: 0px;
-  /* border-bottom: 1px solid gray; */
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto auto 1fr;
+  h1 {
+    font-size: 28px;
+  }
+  .view .title {
+    font-size: 22px;
+  }
+
+  .view .section,
+  .view .section Button {
+    font-size: 16px;
+    font-weight: normal;
+    padding: 0px;
+  }
+
+  .view .description {
+    font-size: 14px;
+  }
 }
 
-h1 {
-  font-size: 28px;
-
-}
-.view .title {  
-  font-size: 22px;
-}
-
-.view .section, .view .section Button {
-  font-size: 16px;
-  font-weight: normal;
-  padding: 0px;
-}
-
-.view .description {
-  font-size: 14px;
-}
-
-}
-
-.view .title .label, 
-.view .section .label, 
+.view .title .label,
+.view .section .label,
 .view .topic .label,
 .view .description .label {
-    display: none;
+  display: none;
 }
 
 .view .section {
@@ -134,7 +144,6 @@ h1 {
   line-height: 1.2em;
 }
 
-
 .view .diagram {
   grid-area: item-diagram;
 
@@ -147,12 +156,6 @@ h1 {
 
   justify-self: center;
   align-self: center;
-
-}
-.view .diagram img {
-  width: 100%;
-  Xmax-height: 500px;
-  object-fit: scale-down;
 }
 
 .view .images {
@@ -161,22 +164,28 @@ h1 {
   width: 100%;
 }
 
-.view .images .image-d .iiz__img {
+.view .diagram .iiz__img {
   object-fit: scale-down;
   max-height: 512px;
-  height: 100%;
-}
-
-.view .images .image-l .iiz__img {
-  height: 100%;
-  max-height: 512px;
-  object-fit: scale-down;
-}
-
-.view .photo img {
-  object-fit: scale-down;
-  Xmax-height: 500px;
   width: 100%;
+}
+
+.view .diagram .iiz__img {
+  max-height: 512px;
+  object-fit: scale-down;
+  width: 100%;
+}
+
+.Xview .diagram img {
+  width: 100%;
+  max-height: 512px;
+  object-fit: scale-down;
+}
+
+.Xview .photo img {
+  width: 100%;
+  object-fit: scale-down;
+  max-height: 512px;
 }
 
 .view .labels {
@@ -199,6 +208,20 @@ h1 {
   margin-bottom: 4px;
 }
 
+.view .larger-photo {
+  grid-area: larger-photo;
+  margin-left: auto;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+.view .larger-diagram {
+  grid-area: larger-diagram;
+  margin-left: auto;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
 h1 {
   margin-bottom: 10px;
   line-height: 1.2em;
@@ -208,7 +231,7 @@ h1 {
 .license {
   margin-left: 1em;
   margin-bottom: 18px;
-  line-height: 1.25em;
+  line-height: 1.4em;
   font-style: oblique;
   font-size: 14px;
   color: gray80;
@@ -248,7 +271,6 @@ h1 {
   font-size: 18px;
   padding-left: 10px;
   color: black;
-
 }
 footer {
   padding-bottom: 2em;
